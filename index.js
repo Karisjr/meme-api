@@ -1,4 +1,5 @@
 const express = require("express");
+const serverless = require('serverless-http');
 const cors = require('cors');
 const memedata = require("./memesdata")
 
@@ -20,6 +21,8 @@ app.get("/api/cat/random", function (req, res) {
   });
   
 
-app.listen(port, function () {
-  console.log(`Example app listening on port ${port}!`);
-});
+// app.listen(port, function () {
+//   console.log(`Example app listening on port ${port}!`);
+// });
+
+module.exports.handler = serverless(app)
